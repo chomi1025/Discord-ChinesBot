@@ -1,0 +1,13 @@
+{
+  "name": "chinese-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@js-temporal/polyfill": "^0.5.1",
+    "discord": "^0.8.2",
+    "discord.js": "^14.26.3",
+    "dotenv": "^17.4.2",
+    "openai": "^6.34.0"
+  }
+}
