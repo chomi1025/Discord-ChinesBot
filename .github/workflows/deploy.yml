@@ -1,0 +1,30 @@
+name: Deploy Discord Bot
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Server via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            cd /home/chome49100/Discord-ChinesBot
+
+            git pull origin main
+
+            npm install
+
+            pm2 restart hsk-bot --update-env
+
+            pm2 list
